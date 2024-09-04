@@ -1,95 +1,82 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import { Montserrat } from "@next/font/google";
+import Image from "next/image";
+import logoPic from "./assets/top-casino-logo.svg";
+import iconPresent from "./assets/present.png";
+
+export const metadata = {
+  title: "Top EU Casinos 2024!",
+  description:
+    "Welcome to EUcasinolist.com. Here we offer you carefully vetted and tested casinos that, with Trustly and Instank Bank, provide the best casino experience in Europe. You can rest and be assured of only high-quality casinos in our list.",
+};
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <header className={`${styles.header} ${montserrat.className}`}>
+        <div className={styles.container}>
+          <div className={`${styles["header-inner"]}`}>
+            <div className={styles.logo}>
+              <a className={`${styles["logo-link"]}`} href="#">
+                <Image
+                  className={`${styles["logo-img"]}`}
+                  src={logoPic}
+                  alt="Top Casinos EU"
+                  width={133}
+                  height={48}
+                />
+              </a>
+            </div>
+            <div className={styles.present}>
+              <div className={`${styles["present-icon"]}`}>
+                <a className={`${styles["present-link"]}`}>
+                  <Image
+                    className="header__present_icon-img"
+                    src={iconPresent}
+                    alt="Top Casinos Present"
+                    width={35}
+                    height={35}
+                  />
+                </a>
+                <span className={`${styles["present-count"]}`}>2</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </header>
+      <main className={`${styles.casinos} ${montserrat.className}`}>
+        <section className={`${styles["casinos-details"]}`}>
+          <div className={styles.container}>
+            <h1 className={`${styles["casinos-title"]}`}>
+              Top EU Casinos 2024
+            </h1>
+            <p className={`${styles["casinos-description"]}`}>
+              Welcome to TOPcasinoseu.com. We present a selection of
+              meticulously vetted and tested casinos that utilize Trustly and
+              Instant Bank, ensuring the best casino experience in Europe. You
+              can relax, knowing that our list includes only high-quality,
+              reliable casinos.
+            </p>
+          </div>
+        </section>
+        <section className={`${styles["casinos-offers"]}`}>
+          <div className={styles.container}>
+            <div className={`${styles["casinos-inner"]}`}>
+              <div className={styles.offer}>Title of Casino</div>
+              <div className={`${styles["play-details"]}`}>Play details</div>
+              <div className={`${styles["payment-methods"]}`}>
+                Payment methods
+              </div>
+              <div className={styles.description}>Description</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
